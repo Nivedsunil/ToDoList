@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-3.7.1.js"></script>
+     
+
+
+</head>
+<body>
+    <div class="container border border-2 rounded mt-5 p-5 p-sm-5 bg-dark-subtle" id="main">
+        <h2 class="text-center ">TO-DO-LIST</h2>
+        <div class="input-group">
+            <input type="text" id="input" class="form-control ">
+            <button  class="btn btn-success btn-add ">ADD</button>
+            
+        </div>
+       
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+          $('.btn-add').click(() => {
+            var data = $("#input").val().trim();
+            
+            if (data !== "") {
+              var task = `<div class=" mt-2 alert alert-info alert-dismissible show fade">
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+                ${data}
+              </div>`;
+              $("#main").append(task);
+            } else {
+              var notask = `<div class="mt-2 alert alert-danger alert-dismissible show fade">
+                <button class="btn-close" data-bs-dismiss="alert"></button>
+                Cannot Add Empty List
+              </div>`;
+              $("#main").append(notask);
+            }
+          });
+        });
+      </script>
+</body>
+</html>
